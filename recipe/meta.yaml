@@ -1,0 +1,46 @@
+{% set name = "titus2" %}
+{% set version = "1.2.1" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: dd7ca43e2a7cde530e0ae440cb65d87aac9eedd8cdba9c47cff5d1882e88c297
+
+build:
+  skip: True  # [py>=310]
+  script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
+  number: 0
+
+requirements:
+  host:
+    - python
+    - titus
+    - pip
+  run:
+    - python
+    - numpy ==1.14.0  # [py<36]
+    - avro-python3 >=1.8.2
+    - ply >=3.11
+    - pyyaml >=5.1.2
+    - pytz >=2019.1
+
+test:
+  imports:
+    - titus
+  commands:
+    - pip check
+  requires:
+    - pip
+
+about:
+  home: https://realworldpython.guide/titus2/
+  summary: 'Python 3 implementation of Portable Format for Analytics (PFA): producer, converter, and consumer.'
+  license: Apache-2.0
+  license_file: LICENSE
+
+extra:
+  recipe-maintainers:
+    - boldorider4
