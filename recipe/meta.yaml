@@ -11,6 +11,8 @@ source:
 
 build:
   skip: True  # [py>=310]
+  # missing win build for avro --> avro-python3
+  skip: True  # [win]
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
   number: 0
 
@@ -21,7 +23,7 @@ requirements:
     - wheel
   run:
     - python
-    - numpy >=1.15.0
+    - numpy >=1.15.0, <1.20.0
     - avro-python3 >=1.8.2
     - ply >=3.11
     - pyyaml >=5.1.2
