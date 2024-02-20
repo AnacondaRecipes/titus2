@@ -17,11 +17,11 @@ build:
 requirements:
   host:
     - python
-    - titus
-    - pip
+    - setuptools
+    - wheel
   run:
     - python
-    - numpy ==1.14.0  # [py<36]
+    - numpy >=1.15.0
     - avro-python3 >=1.8.2
     - ply >=3.11
     - pyyaml >=5.1.2
