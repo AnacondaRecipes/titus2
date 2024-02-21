@@ -1,2 +1,5 @@
 upload_channels:
   - sfe1ed40
+
+channels:
+    - https://staging.continuum.io/prefect/fs/avro-python3-feedstock/pr3/4ed757a
