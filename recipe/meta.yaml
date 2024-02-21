@@ -19,11 +19,12 @@ build:
 requirements:
   host:
     - python
+    - pip
     - setuptools
     - wheel
   run:
     - python
-    - numpy >=1.15.0, <1.20.0
+    - numpy >=1.15.0,<1.20.0
     - avro-python3 >=1.8.2
     - ply >=3.11
     - pyyaml >=5.1.2
@@ -32,13 +33,22 @@ requirements:
 test:
   imports:
     - titus
-  commands:
-    - pip check
+    - titus.producer
+    - titus.lib
+    - titus.lib.model
+    - titus.lib.prob
+    - titus.lib.stat
+    - titus.inspector
   requires:
     - pip
+  source_files:
+    - test
+  commands:
+    - pip check
+    - python -m unittest discover -s test -p "test*.py"
 
 about:
-  home: https://realworldpython.guide/titus2
+  home: https://realworldpython.github.io/titus2
   summary: Python 3 implementation of Portable Format for Analytics
   description: |
     Titus 2 is a fork of the original Titus python library which resides in the (now defunct) Hadrian repository. Titus
@@ -46,7 +56,7 @@ about:
     support its development for Python 3.
   license: Apache-2.0
   license_file: LICENSE
-  license_family: Apache
+  license_family: APACHE
   doc_url: https://realworldpython.github.io/titus2
   dev_url: https://github.com/animator/titus2
 
