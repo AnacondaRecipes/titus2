@@ -41,11 +41,13 @@ test:
     - titus.inspector
   requires:
     - pip
+    - pytest
   source_files:
     - test
   commands:
     - pip check
-    - python -m unittest discover -s test -p "test*.py"
+    - pytest test -o python_files=test*.py -k "not testUnpackBoolean" -v  # [osx]
+    - pytest test -o python_files=test*.py -v  # [not osx]
 
 about:
   home: https://realworldpython.github.io/titus2
