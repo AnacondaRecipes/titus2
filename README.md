@@ -12,7 +12,7 @@ BSD-3
 Apache-2.0
 
 ## Docs
-https://realworldpython.github.io/titus2/
+https://realworldpython.github.io/titus2
 
 ## Dev
 https://github.com/animator/titus2
