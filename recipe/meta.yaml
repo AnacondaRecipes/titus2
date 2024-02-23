@@ -8,8 +8,6 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: dd7ca43e2a7cde530e0ae440cb65d87aac9eedd8cdba9c47cff5d1882e88c297
-  patches:
-    - patches/0001-skip-test-for-darwin.patch  # [osx]
 
 build:
   skip: True  # [py>=310]
@@ -19,8 +17,6 @@ build:
   number: 0
 
 requirements:
-  build:
-    - patch  # [osx]
   host:
     - python
     - pip
